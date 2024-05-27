@@ -1,0 +1,29 @@
+@page "/text"
+@rendermode InteractiveServer
+
+<PageTitle>Text</PageTitle>
+
+<p>@message</p>
+<input type="text" @onkeypress="InputChanged" />
+
+@code {
+    string message = "";
+
+    void InputChanged(KeyboardEventArgs e)
+    {
+        if (e.Code == "Enter")
+        {
+            return;
+        }
+
+        if (e.Code == "Space")
+        {
+            message += " ";
+            return;
+        }
+
+        var input = e.Code.Split("Key");
+        //message = (string)e.Code;
+        message += (string)input[1];
+    }
+}
