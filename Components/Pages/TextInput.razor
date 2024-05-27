@@ -7,9 +7,9 @@
 <input type="text" @onkeypress="InputChanged" />
 
 @code {
-    string message = "";
+    private string message = "";
 
-    void InputChanged(KeyboardEventArgs e)
+    private void InputChanged(KeyboardEventArgs e)
     {
         if (e.Code == "Enter")
         {
